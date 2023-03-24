@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Available Produces</h2>
+            <p>Happiness is not a goal; it is a by-product.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- End Breadcrumbs -->
+  <!-- ======= Pricing Section ======= -->
+  <section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+      <div class="row gy-4">
+        {% for product in products %}
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="pricing-item featured">
+            <h3>{{product.product_name}}</h3>
+            <h4><sup>₹</sup>{{product.product_price}}<span>INR /Quintal</span></h4>
+
+
+<img src="https://img.etimg.com/thumb/width-1200,height-900,imgsize-78428,resizemode-1,msid-91507504/small-biz/trade/exports/insights/from-india-to-france-wheat-crops-are-coming-under-threat-everywhere.jpg"  width="200" height="100">
+            <ul>
+              <li><i class="bi-person-fill"></i>    Farmer: {{product.profile.user.first_name}}</li>
+              <li><i class="bi-phone-fill"></i>Phone number: {{product.phone_number}}</li>
+              <li><i class="bi-basket2-fill"></i> Quantity: {{product.product_quantity}} Quintals</li>
+              <li><i class="bi-geo-alt-fill"></i>Location: {{product.seller_district}}</li>
+            </ul>
+            
+          <a href="#" class="buy-btn" onclick="handleFunctionBuy(event,'{{product.prodId}}')">Buy Now</a>
+          </div>
+        </div><!-- End Pricing Item -->
+        {%endfor%}
+      </div>
+    </div>
+    </section>
+
+    <!-- <div class="blog-pagination">
+      <ul class="justify-content-center">
+          {% if queryset.has_previous %}
+              <li><a href="?page=1">First</a></li>
+              <li>
+                  <a href="?{{ page_request_var }}={{ queryset.previous_page_number }}">Previous</a>
+              </li>
+          {% endif %}
+
+          {% for num in queryset.paginator.page_range %}
+              {% if queryset.number == num %}
+                  <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+              {% elif num > queryset.number|add:'-3' and num < queryset.number|add:'3' %}
+                  <li><a href="?page={{ num }}">{{ num }}</a></li>
+              {% endif %}
+          {% endfor %}
+
+          {% if queryset.has_next %}
+              <li><a href="?page={{ queryset.next_page_number }}">Next</a></li>
+              <li><a href="?page={{ queryset.paginator.num_pages }}">Last</a></li>
+          {% endif %}
+      </ul>
+  </div> -->
+      </div>
+
+    </div>
+  </section>
+  
+  <!-- End Pricing Section -->
+
+  <!-- ======= Horizontal Pricing Section ======= -->
+ <!---- <section id="horizontal-pricing" class="horizontal-pricing pt-0">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <span>Horizontal Pricing</span>
+        <h2>Horizontal Pricing</h2>
+
+      </div>
+
+      <div class="row gy-4 pricing-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3>Free Plan</h3>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h4><sup>$</sup>0<span> / month</span></h4>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <ul>
+            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
+            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
+            <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+        </div>
+      </div><-- End Pricing Item -->
+
+      <!--<div class="row gy-4 pricing-item featured mt-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3>Business Plan</h3>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h4><sup>$</sup>29<span> / month</span></h4>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <ul>
+            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
+            <li><i class="bi bi-check"></i> <strong>Nec feugiat nisl pretium</strong></li>
+            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
+          </ul>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+        </div>
+      </div><-- End Pricing Item -->
+
+      <!--<div class="row gy-4 pricing-item mt-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3>Developer Plan</h3>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h4><sup>$</sup>49<span> / month</span></h4>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <ul>
+            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
+            <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
+            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
+          </ul>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+        </div>
+      </div><-- End Pricing Item -->
+
+    <!--</div>
+  </section>End Horizontal Pricing Section
+-->
+
+</main><!-- End #main -->
+
+{% endblock content %}

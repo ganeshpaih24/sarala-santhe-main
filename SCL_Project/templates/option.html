@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .buy-btn{
+      
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+    img {
+  display: block;
+  margin-left: 130px;
+  margin-right: 15px;
+}
+
+    
+</style>
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2 id="45">Tell us your choice! </h2>
+                        <!-- <p>Happiness is not a goal; it is a by-product.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-3">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-item featured">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpZh57wKadLp2K6EaLEJVOVkJpBDzFtU9bhGP1I1aacLo0bq-fodQBSbBz6B0h5PwgwJM&usqp=CAU"
+                        width="250" height="200">
+
+                        <a href="{% url 'sell' %}" class="buy-btn" id="46" style="display: block; text-align: center; width:370px;">SELL</a>
+                    </div>
+                </div><!-- End Pricing Item -->
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-item featured">
+                        <img src="https://www.iconsdb.com/icons/preview/green/shopping-basket-xxl.png"
+                            width="250" height="200">
+
+                        <a href="{% url 'buy' %}" class="buy-btn" id="47" style="display: block; text-align: center; width:370px;">BUY</a>
+                    
+                </div>
+                </div><!-- End Pricing Item -->
+
+
+
+
+
+            </div>
+
+        </div>
+    </section><!-- End Pricing Section -->
+
+
+
+    {% endblock content %}
