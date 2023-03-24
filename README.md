@@ -11,7 +11,7 @@
   <p align="center">
     A single stop solution for fair crop trade
     <br/>
-    By Team-BitSlashers
+    By Team-konkani debugger
     <br />
     <a href="https://github.com/World-Konkani-Centre/SCL-2022-BitSlashers/blob/main/README.md">View Demo</a>
     ·
