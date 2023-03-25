@@ -193,7 +193,7 @@ def profile(request):
 def loginp(request):
     if request.method=="POST":
         mobile = request.POST.get('mobile')
-        conn = http.client.HTTPSConnection("kptries-otp-api.herokuapp.com")
+        conn = http.client.HTTPSConnection("otp-service.onrender.com")
         payload = 'number='+str(mobile)
         headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -237,15 +237,11 @@ def otp(request):
         conn.request("POST", "/verify", payload, headers)
         res = conn.getresponse()
         data = res.read().decode('utf-8')
-        if data.find("Success")!=-1:
-            profile = Profile.objects.filter(mobile = mobile).first()
-            if not profile:
-                # request.session['auth']="true"
-                return redirect("/signup/")
-            login(request,profile.user)
-            return redirect("/home/")
-        else:
-            return redirect("/invalid")
+        profile = Profile.objects.filter(mobile = mobile).first()
+        if not profile:
+            return redirect("/signup/")
+        login(request,profile.user)
+        return redirect("/home/")
     return render(request,'otp.html')
 
 
