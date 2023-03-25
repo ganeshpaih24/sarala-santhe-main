@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>WeGroW</title>
+    <title>Sarala Santhe</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -45,7 +45,8 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="{% url 'index' %}" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <h1>Sarala Santhe</h1>
+                <img src="{%static 'WeGrow/img/logo1.png'%}"/>
+               
             </a>
 
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -80,6 +81,11 @@
                     </li>
                     <li>
                         <a class="get-a-quote" href="{% url 'option' %}" id="7">Trade</a>
+                    </li>
+                    <li>
+                        {%if not user.is_authenticated%}
+                        <a class="get-a-quote" href="{% url 'login' %}" id="7">Login</a>
+                        {%endif%}
                     </li>
                     <li>
                         <select id="language-selector" class="get-a-quote" onChange="onSelectionFunction(this)">
